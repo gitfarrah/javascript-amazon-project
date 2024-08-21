@@ -113,3 +113,18 @@ document.querySelectorAll('.js-delete-link')
     });
 });
 
+//i want to get the cart quantity 
+//and display it in the header
+//if the cart is empty, display 0
+//if the cart has items, display the total quantity
+
+
+
+let returnHome = '';
+returnHome = `Checkout (<a class="return-to-home-link js-return-to-home-link"
+            href="amazon.html">${cart.quantity}</a>)`;
+
+console.log(returnHome);
+console.log(cart.quantity)
+
+document.querySelector('.js-header-middle').innerHTML = returnHome;
