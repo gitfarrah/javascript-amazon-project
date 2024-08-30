@@ -5,18 +5,23 @@ import {loadCart} from '../data/cart.js';
 
 
 async function loadPage() {
+    try{
+        //throw 'error1';
+        await loadProductsFetch();
 
-
-    await loadProductsFetch();
-
-    await new Promise((resolve) => {
-        loadCart(() => {
-            resolve('value2');    
+        await new Promise((resolve , reject) => {
+            loadCart(() => {
+                //reject('error3')
+                resolve('value2');    
+            });
         });
-    });
+        }catch(error) {
+            console.error('Error loading page');
+        }
 
     renderOrderSummary();
     renderPaymentSummary();
+
 }
 
     
